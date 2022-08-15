@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "DAL/1.0.0": {
         "dependencies": {
+          "Persistence": "1.0.0",
           "MySql.Data": "8.0.30"
         },
         "runtime": {
@@ -208,6 +209,11 @@
             "fileVersion": "4.700.19.56404"
           }
         }
+      },
+      "Persistence/1.0.0": {
+        "runtime": {
+          "Persistence.dll": {}
+        }
       }
     }
   },
@@ -349,6 +355,11 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "Persistence/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -270,6 +270,16 @@
             "rid": "win"
           }
         }
+      },
+      "Persistence/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Persistence.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Persistence.dll": {}
+        }
       }
     }
   },
@@ -834,10 +844,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Persistence/1.0.0": {
+      "type": "project",
+      "path": "../Persistence/Persistence.csproj",
+      "msbuildProject": "../Persistence/Persistence.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Persistence >= 1.0.0",
       "mysql.data >= 8.0.30"
     ]
   },
@@ -865,7 +881,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\Persistence\\Persistence.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

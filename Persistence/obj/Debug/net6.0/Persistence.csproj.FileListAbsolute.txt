@@ -1,0 +1,15 @@
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\obj\Debug\net6.0\Persistence.csproj.AssemblyReference.cache
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\obj\Debug\net6.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\obj\Debug\net6.0\Persistence.AssemblyInfoInputs.cache
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\obj\Debug\net6.0\Persistence.AssemblyInfo.cs
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\obj\Debug\net6.0\Persistence.csproj.CoreCompileInputs.cache
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\bin\Debug\net6.0\Persistence.exe
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\bin\Debug\net6.0\Persistence.deps.json
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\bin\Debug\net6.0\Persistence.runtimeconfig.json
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\bin\Debug\net6.0\Persistence.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\bin\Debug\net6.0\Persistence.pdb
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\obj\Debug\net6.0\Persistence.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\obj\Debug\net6.0\refint\Persistence.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\obj\Debug\net6.0\Persistence.pdb
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\obj\Debug\net6.0\Persistence.genruntimeconfig.cache
+C:\Users\hailo\WorkSpace\C#\Semeter1\Persistence\obj\Debug\net6.0\ref\Persistence.dll

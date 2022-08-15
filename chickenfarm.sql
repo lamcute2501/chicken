@@ -44,10 +44,11 @@ create table transaction(
 
 -- chicken start --------------------------------------------
 DELIMITER $$
-CREATE PROCEDURE `AddChicken`(in name varchar(50),in im_price decimal(20,2), in ex_price decimal(20,2), in description varchar(200))
+CREATE PROCEDURE `AddChicken`(in name varchar(50),in im_price decimal(20,2), in ex_price decimal(20,2), in description varchar(200), out id int)
 BEGIN
 	insert into chicken(chicken_name,import_price,export_price,description) values
     (name,im_price,ex_price,description);
+    select max(chicken_id) into id from chicken;
 END$$
 DELIMITER ;
 
@@ -64,6 +65,20 @@ BEGIN
 	update chicken
     set chicken_name = name,import_price = im_price, export_price = ex_price, description = description
     where chicken_id = id;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE `SearchChickenByID`(in id int)
+BEGIN
+	select * from chicken where chicken_id  = id;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE `SearchChickenByName`(in name varchar(50))
+BEGIN
+	select * from chicken where chicken_name  = name;
 END$$
 DELIMITER ;
 
@@ -112,6 +127,20 @@ DELIMITER ;
 -- END$$
 -- DELIMITER ;
 
+DELIMITER $$
+CREATE PROCEDURE `SearchChickenStatusByID`(in id int)
+BEGIN
+	select * from chickenstatus where chicken_id  = id;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE `SearchChickenStatusByStatus`(in status Enum('Giong','Dang Lon','Xuat Chuong'))
+BEGIN
+	select * from chickenstatus where chicken_status  = status;
+END$$
+DELIMITER ;
+
 -- khi chuyen chuong kich hoat trigger tru cua chuong nay + vao chuong kia 
 DELIMITER $$
 CREATE PROCEDURE `UpdateChickenStatus`(in id int, in quantity int, in status Enum('Giong','Dang Lon','Xuat Chuong'), in cage int)
@@ -147,10 +176,11 @@ delimiter ;
 -- cage start --------------------------------------------
 
 DELIMITER $$
-CREATE PROCEDURE `AddCage`(in name varchar(50), in max_cap int, in cur_cap int ,in status enum('Open','Close','Maintenance'))
+CREATE PROCEDURE `AddCage`(in name varchar(50), in max_cap int, in cur_cap int ,in status enum('Open','Close','Maintenance'), out id int)
 BEGIN
 	insert into cage(cage_name,max_capacity,current_capacity,cage_status) values
     (name,max_cap,cur_cap,status);
+    select max(cage_id) into id from cage;
 END$$
 DELIMITER ;
 
@@ -160,6 +190,20 @@ DELIMITER ;
 -- 	delete from chicken where chicken_id = id;
 -- END$$
 -- DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE `SearchCageByID`(in id int)
+BEGIN
+	select * from cage where cage_id  = id;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE `SearchCageByName`(in name varchar(50))
+BEGIN
+	select * from cage where cage_name  = name;
+END$$
+DELIMITER ;
 
 DELIMITER $$
 CREATE PROCEDURE `UpdateCage`(in id int, in name varchar(50), in max_cap int, in cur_cap int ,in status Enum('Open','Close','Maintenance'))

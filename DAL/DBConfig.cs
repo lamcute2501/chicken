@@ -2,10 +2,10 @@ using MySql.Data.MySqlClient;
 
 namespace DAL {
 
-    public class DBConfig {
+    public class DbConfig {
 
         private static MySqlConnection connection = new MySqlConnection();
-        private DBConfig(){}
+        private DbConfig(){}
         public static MySqlConnection GetDefaultConnection(){
             connection.ConnectionString = "server=localhost;user id=root;password=01266211591aA!@;port=3306;database=OrderDB;";
             return connection;

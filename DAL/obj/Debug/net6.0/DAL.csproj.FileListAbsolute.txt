@@ -33,3 +33,8 @@ C:\Users\hailo\WorkSpace\C#\Semeter1\DAL\obj\Debug\net6.0\refint\DAL.dll
 C:\Users\hailo\WorkSpace\C#\Semeter1\DAL\obj\Debug\net6.0\DAL.pdb
 C:\Users\hailo\WorkSpace\C#\Semeter1\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache
 C:\Users\hailo\WorkSpace\C#\Semeter1\DAL\obj\Debug\net6.0\ref\DAL.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\DAL\bin\Debug\net6.0\Persistence.deps.json
+C:\Users\hailo\WorkSpace\C#\Semeter1\DAL\bin\Debug\net6.0\Persistence.runtimeconfig.json
+C:\Users\hailo\WorkSpace\C#\Semeter1\DAL\bin\Debug\net6.0\Persistence.exe
+C:\Users\hailo\WorkSpace\C#\Semeter1\DAL\bin\Debug\net6.0\Persistence.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\DAL\bin\Debug\net6.0\Persistence.pdb

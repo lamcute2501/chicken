@@ -1,5 +1,5 @@
 namespace Persistence {
-    private enum StatusOfCage {
+    public enum StatusOfCage {
         Dong = 0,
         Hoat_Dong = 1,
         Bao_Tri = 2
