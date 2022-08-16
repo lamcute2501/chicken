@@ -18,20 +18,22 @@ namespace DAL {
             MySqlCommand cmd = new MySqlCommand("AddChicken",connection);
             try {
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@chicken_name", ckicken.ChickenName);
-                cmd.Parameters["@chicken_name"].Direction = System.Data.ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@name", ckicken.ChickenName);
+                cmd.Parameters["@name"].Direction = System.Data.ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@im_price", ckicken.ImportPrice);
                 cmd.Parameters["@im_price"].Direction = System.Data.ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@ex_price", ckicken.ExportPrice);
                 cmd.Parameters["@ex_price"].Direction = System.Data.ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@description", ckicken.Decription);
-                cmd.Parameters["@desc"].Direction = System.Data.ParameterDirection.Input;
+                cmd.Parameters["@description"].Direction = System.Data.ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@id", MySqlDbType.Int32);
-                cmd.Parameters["@desc"].Direction = System.Data.ParameterDirection.Output;
+                cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Output;
                 cmd.ExecuteNonQuery();
                 result = (int)cmd.Parameters["@id"].Value;
             }
-            catch {}
+            catch(Exception e) {
+                Console.WriteLine(e.Message);
+            }
             finally {
                 connection.Close();
             }
@@ -52,7 +54,9 @@ namespace DAL {
                 }
                 reader.Close();
             }
-            catch {}
+            catch(Exception e) {
+                Console.WriteLine(e.Message);
+            }
             finally{
                 connection.Close();
             }
@@ -80,9 +84,43 @@ namespace DAL {
             return ck;
         }
 
-        public bool UpdateChicken(string name, decimal im_price, decimal ex_price, string desc){
+        public bool UpdateChicken(string name, decimal im_price, decimal ex_price, string desc, int id){
             bool result = false;
-
+            try {
+                connection.Open();
+                MySqlTransaction transaction = connection.BeginTransaction();
+                MySqlCommand cmd = new MySqlCommand("UpdateChickenInfo",connection);
+                cmd.Transaction = transaction;
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@name",name);
+                cmd.Parameters["@name"].Direction = System.Data.ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@im_price",im_price);
+                cmd.Parameters["@im_price"].Direction = System.Data.ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@ex_price",ex_price);
+                cmd.Parameters["@ex_price"].Direction = System.Data.ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@description", desc);
+                cmd.Parameters["@description"].Direction = System.Data.ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@id",id);
+                cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Input;
+                try{
+                    cmd.ExecuteNonQuery();
+                    transaction.Commit();
+                    result = true;
+                }
+                catch(Exception e){
+                    Console.WriteLine(e.Message);
+                    try{
+                        transaction.Rollback();
+                    }
+                    catch {}
+                }
+            }
+            catch(Exception e) {
+                Console.WriteLine(e.Message);
+            }
+            finally{
+                connection.Close();
+            }
             return result;
         }
 
@@ -92,7 +130,7 @@ namespace DAL {
             ck.ChickenName = reader.GetString("chicken_name");
             ck.ImportPrice = reader.GetDecimal("import_price");
             ck.ExportPrice = reader.GetDecimal("export_price");
-            ck.Decription = reader.GetString("decription");
+            ck.Decription = reader.GetString("description");
             return ck;
         }
     }

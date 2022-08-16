@@ -7,7 +7,7 @@ namespace DAL {
         private static MySqlConnection connection = new MySqlConnection();
         private DbConfig(){}
         public static MySqlConnection GetDefaultConnection(){
-            connection.ConnectionString = "server=localhost;user id=root;password=01266211591aA!@;port=3306;database=OrderDB;";
+            connection.ConnectionString = "server=localhost;user id=root;password=01266211591aA!@;port=3306;database=chickenfarmdb;";
             return connection;
         }
 
