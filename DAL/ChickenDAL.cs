@@ -3,7 +3,6 @@ using Persistence;
 namespace DAL {
 
     public class ChickenDAL {
-        private string query;
         private MySqlConnection connection = DbConfig.GetConnection();
         private MySqlDataReader reader;
         
