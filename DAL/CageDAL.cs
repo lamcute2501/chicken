@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Persistence;
+using System.Collections.Generic;
 namespace DAL {
 
     public class CageDAL{
@@ -62,17 +63,26 @@ namespace DAL {
             return cg;
         }
 
-        public Cage GetCageByName(string name){
-            Cage cg = null;
+        public List<Cage>? GetCages (int cageFilter,string name){
+            List<Cage>? cgList = null;
             try {
                 connection.Open();
-                MySqlCommand cmd = new MySqlCommand("SearchCageByName",connection);
+                MySqlCommand cmd = new MySqlCommand("",connection);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@name",name);
-                cmd.Parameters["@name"].Direction = System.Data.ParameterDirection.Input;
+                switch(cageFilter){
+                    case GetFilter.Get_By_Name:
+                        cmd.CommandText = "SearchCageByName";
+                        cmd.Parameters.AddWithValue("@name",name);
+                        cmd.Parameters["@name"].Direction = System.Data.ParameterDirection.Input;
+                        break;
+                    case GetFilter.Get_All:
+                        cmd.CommandText = "GetAllCage";
+                        break;
+                }
+                cgList = new List<Cage>();
                 reader = cmd.ExecuteReader();
-                if(reader.Read()){
-                    cg = GetCage(reader);
+                while(reader.Read()){
+                    cgList.Add(GetCage(reader));
                 }
                 reader.Close();
             }
@@ -80,8 +90,10 @@ namespace DAL {
             finally{
                 connection.Close();
             }
-            return cg;
+            return cgList;
         }
+
+
 
         public bool UpdateCage(int id,string name, int max_cap, int cur_cap, string status){
             bool result = false;

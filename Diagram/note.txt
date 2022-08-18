@@ -1,8 +1,0 @@
-+procedures
-	them,sua,xoa ga,chuong,giao dich
-+trigger
-	truoc khi them sua xoa cac du lieu
-+ view
-	thong ke thu,chi theo ngay, thang , nam
-	
-	

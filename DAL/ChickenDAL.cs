@@ -1,6 +1,13 @@
-using MySql.Data.MySqlClient;
 using Persistence;
+using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 namespace DAL {
+
+    public static class GetFilter {
+        public const int Get_By_Name = 1;
+        public const int Get_All = 2;
+        public const int Get_Status_By_ID = 3;
+    }
 
     public class ChickenDAL {
         private MySqlConnection connection = DbConfig.GetConnection();
@@ -39,8 +46,8 @@ namespace DAL {
             return result;
         }
         
-        public Chicken GetChickenById(int id){
-            Chicken ck = null;
+        public Chicken? GetChickenById(int id){
+            Chicken? ck = null;
             try {
                 connection.Open();
                 MySqlCommand cmd = new MySqlCommand("SearchChickenByID",connection);
@@ -62,25 +69,36 @@ namespace DAL {
             return ck;
         }
 
-        public Chicken GetChickenByName(string name){
-            Chicken ck = null;
+        public List<Chicken>? GetChickens(int chikenFilter,string name){
+            List<Chicken>? ckList = null;
             try {
                 connection.Open();
-                MySqlCommand cmd = new MySqlCommand("SearchChickenByName",connection);
+                MySqlCommand cmd = new MySqlCommand("",connection);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@name",name);
-                cmd.Parameters["@name"].Direction = System.Data.ParameterDirection.Input;
+                switch(chikenFilter){
+                    case GetFilter.Get_By_Name:
+                        cmd.CommandText = "SearchChickenByName";
+                        cmd.Parameters.AddWithValue("@name",name);
+                        cmd.Parameters["@name"].Direction = System.Data.ParameterDirection.Input;
+                        break;
+                    case GetFilter.Get_All:
+                        cmd.CommandText = "GetAllChicken";
+                        break;
+                }
+                ckList = new List<Chicken>();
                 reader = cmd.ExecuteReader();
-                if(reader.Read()){
-                    ck = GetChicken(reader);
+                while(reader.Read()){
+                    ckList.Add(GetChicken(reader));
                 }
                 reader.Close();
             }
-            catch {}
+            catch(Exception e) {
+                Console.WriteLine(e.Message);
+            }
             finally{
                 connection.Close();
             }
-            return ck;
+            return ckList;
         }
 
         public bool UpdateChicken(string name, decimal im_price, decimal ex_price, string desc, int id){
@@ -97,8 +115,8 @@ namespace DAL {
                 cmd.Parameters["@im_price"].Direction = System.Data.ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@ex_price",ex_price);
                 cmd.Parameters["@ex_price"].Direction = System.Data.ParameterDirection.Input;
-                cmd.Parameters.AddWithValue("@description", desc);
-                cmd.Parameters["@description"].Direction = System.Data.ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@des", desc);
+                cmd.Parameters["@des"].Direction = System.Data.ParameterDirection.Input;
                 cmd.Parameters.AddWithValue("@id",id);
                 cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Input;
                 try{
