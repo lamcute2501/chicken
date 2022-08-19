@@ -46,7 +46,7 @@ namespace DAL {
             return result;
         }
         
-        public Chicken? GetChickenById(int id){
+        public Chicken GetChickenById(int id){
             Chicken? ck = null;
             try {
                 connection.Open();

@@ -16,7 +16,7 @@ namespace DAL {
                 string conString;
                 using (System.IO.FileStream fileStream = System.IO.File.OpenRead("DbConfig.txt")){
                 using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream)){
-                    conString = reader.ReadLine();
+                    conString = reader.ReadLine() ?? "";
                 }
                 }
                 return GetConnection(conString);

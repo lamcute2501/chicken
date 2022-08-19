@@ -63,8 +63,8 @@ namespace DAL {
             return cg;
         }
 
-        public List<Cage>? GetCages (int cageFilter,string name){
-            List<Cage>? cgList = null;
+        public List<Cage> GetCages (int cageFilter,string name){
+            List<Cage> cgList = null;
             try {
                 connection.Open();
                 MySqlCommand cmd = new MySqlCommand("",connection);

@@ -72,12 +72,26 @@ namespace Persistence {
 
         public void ShowCage(){
             Console.WriteLine("┌───────────────────────Thông Tin Chuồng Trại───────────────────────┐");
-            Console.WriteLine("     ID Chuồng         : " + CageID);
-            Console.WriteLine("     Tên Chuồng        : " + Cage_Name);
-            Console.WriteLine("     Sức Chứa Tối Đa   : " + Max_Capacity);
-            Console.WriteLine("     Lượng Gà Hiện Tại : " + Current_Capacity);
-            Console.WriteLine("     Trạng Thái Chuồng : " + CageStatus);
-            Console.WriteLine("└───────────────────────────────────────────────────────────────┘");
+            Console.WriteLine("    ID Chuồng         : " + CageID);
+            Console.WriteLine("    Tên Chuồng        : " + Cage_Name);
+            Console.WriteLine("    Sức Chứa Tối Đa   : " + Max_Capacity);
+            Console.WriteLine("    Lượng Gà Hiện Tại : " + Current_Capacity);
+            Console.WriteLine("    Trạng Thái Chuồng : " + CageStatus);
+            Console.WriteLine("└───────────────────────────────────────────────────────────────────┘");
+        }
+
+        public void ShowChickenRow(){
+            Console.Write("║ " + CageID);
+            for(int i = 1 ; i <= 5 - CageID.ToString().Length - 1; i++) Console.Write(" ");
+            Console.Write("║ " + Cage_Name);
+            for(int i = 1 ; i <= 20 - Cage_Name.Length - 1; i++) Console.Write(" ");
+            Console.Write("║ " + Max_Capacity);
+            for(int i = 1 ; i <= 20 - Max_Capacity.ToString().Length - 1; i++) Console.Write(" ");
+            Console.Write("║ " + Current_Capacity);
+            for(int i = 1 ; i <= 20 - Current_Capacity.ToString().Length - 1; i++) Console.Write(" ");         
+            Console.Write("║ " + CageStatus);
+            for(int i = 1 ; i <= 20 - CageStatus.ToString().Length - 1; i++) Console.Write(" ");
+            Console.WriteLine("║");
         }
 
     }

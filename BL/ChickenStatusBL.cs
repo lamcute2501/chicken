@@ -13,7 +13,7 @@ namespace BL {
             return csdal.GetChickenStatus(ckid,cgid,status);
         }
 
-        public List<ChickenStatus>? GetChickenStatus(int getFilter,string status){
+        public List<ChickenStatus> GetChickenStatus(int getFilter,string status){
             return csdal.GetChickenStatus(getFilter, status);
         }
 

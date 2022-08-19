@@ -80,8 +80,10 @@ namespace DAL {
                         cmd.CommandText = "GetAllChickenStatus";
                         break;
                     case GetFilter.Get_Status_By_ID:
+                        // int id;
+                        // int.TryParse(status,out id);
                         cmd.CommandText = "SearchChickenStatusByID";
-                        cmd.Parameters.AddWithValue("@id",Convert.ToInt32(status));
+                        cmd.Parameters.AddWithValue("@id",status);
                         cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Input;
                         break;
                 }

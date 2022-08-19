@@ -1,0 +1,12 @@
+C:\Users\hailo\WorkSpace\C#\Semeter1\SemeterLib\bin\Debug\net6.0\SemeterLib.deps.json
+C:\Users\hailo\WorkSpace\C#\Semeter1\SemeterLib\bin\Debug\net6.0\SemeterLib.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\SemeterLib\bin\Debug\net6.0\SemeterLib.pdb
+C:\Users\hailo\WorkSpace\C#\Semeter1\SemeterLib\obj\Debug\net6.0\SemeterLib.csproj.AssemblyReference.cache
+C:\Users\hailo\WorkSpace\C#\Semeter1\SemeterLib\obj\Debug\net6.0\SemeterLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hailo\WorkSpace\C#\Semeter1\SemeterLib\obj\Debug\net6.0\SemeterLib.AssemblyInfoInputs.cache
+C:\Users\hailo\WorkSpace\C#\Semeter1\SemeterLib\obj\Debug\net6.0\SemeterLib.AssemblyInfo.cs
+C:\Users\hailo\WorkSpace\C#\Semeter1\SemeterLib\obj\Debug\net6.0\SemeterLib.csproj.CoreCompileInputs.cache
+C:\Users\hailo\WorkSpace\C#\Semeter1\SemeterLib\obj\Debug\net6.0\SemeterLib.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\SemeterLib\obj\Debug\net6.0\refint\SemeterLib.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\SemeterLib\obj\Debug\net6.0\SemeterLib.pdb
+C:\Users\hailo\WorkSpace\C#\Semeter1\SemeterLib\obj\Debug\net6.0\ref\SemeterLib.dll

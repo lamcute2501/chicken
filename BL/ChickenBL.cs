@@ -10,11 +10,11 @@ namespace BL {
             return ckdal.AddChicken(ck) ?? 0;
         }
 
-        public Chicken? GetChickenById(int id){
+        public Chicken GetChickenById(int id){
             return ckdal.GetChickenById(id);
         }
 
-        public List<Chicken>? GetChickens(int getFilter,string name){
+        public List<Chicken> GetChickens(int getFilter,string name){
             return ckdal.GetChickens(getFilter,name);
         }
 
