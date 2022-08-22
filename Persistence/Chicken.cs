@@ -37,6 +37,10 @@
         }
 
         public void ShowChicken(){
+            char[] desNor =  Decription.ToCharArray();
+            // if(Decription.Length > 44)
+            //     desNor[Decription.LastIndexOf(' ',0,44)] = '\n';
+
             Console.WriteLine("┌───────────────────────Thông Tin Loại Gà───────────────────────┐");
             Console.WriteLine("     ID Gà   : " + ChickenID);
             Console.WriteLine("     Tên Gà  : " + ChickenName);

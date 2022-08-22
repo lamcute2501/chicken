@@ -14,7 +14,7 @@ namespace DAL {
         public static MySqlConnection GetConnection(){
             try{
                 string conString;
-                using (System.IO.FileStream fileStream = System.IO.File.OpenRead("DbConfig.txt")){
+                using (System.IO.FileStream fileStream = System.IO.File.OpenRead("DBConfig.txt")){
                 using (System.IO.StreamReader reader = new System.IO.StreamReader(fileStream)){
                     conString = reader.ReadLine() ?? "";
                 }

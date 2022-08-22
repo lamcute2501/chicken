@@ -34,6 +34,11 @@ create table transaction(
     transaction_time datetime default now() not null
 );
 
+create table user(
+	user_id int primary key auto_increment,
+    user_name varchar(50) unique not null,
+    user_password varchar(50) not null
+);
 
 -- alter table chicken auto_increment = 1;
 -- creat procedure,trigger,view
@@ -280,3 +285,13 @@ delimiter ;
 -- transaction start --------------------------------------------
 
 
+-- user start ----------------------------------------------
+
+DELIMITER $$
+CREATE PROCEDURE `SearchUserName`(in userName varchar(50), out id int)
+BEGIN
+	select user_id from user where user_name = userName;
+END$$
+DELIMITER ;
+
+ select user_id from user where user_name = 'hakira' and user_password = '123123123';

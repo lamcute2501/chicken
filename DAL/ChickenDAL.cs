@@ -18,11 +18,11 @@ namespace DAL {
         public int? AddChicken(Chicken ckicken){
             int? result = null;
             
-            if(connection.State == System.Data.ConnectionState.Closed){
-                connection.Open();
-            }
-            MySqlCommand cmd = new MySqlCommand("AddChicken",connection);
+            // if(connection.State == System.Data.ConnectionState.Closed){
+            // }
             try {
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand("AddChicken",connection);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name", ckicken.ChickenName);
                 cmd.Parameters["@name"].Direction = System.Data.ParameterDirection.Input;
