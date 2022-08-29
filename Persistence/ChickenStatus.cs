@@ -50,26 +50,6 @@ namespace Persistence {
             return cs;
         }
 
-        public void ShowStatus(){
-            Console.WriteLine("┌───────────────────────Thông Tin Nhóm Gà───────────────────────┐");
-            Console.WriteLine("     ID Gà     : " + ChickenID);
-            Console.WriteLine("     Số Lượng  : " + Quantity);
-            Console.WriteLine("     Giai Đoạn : " + chickenStatus);
-            Console.WriteLine("     ID Chuồng : " + CageID);
-            Console.WriteLine("└───────────────────────────────────────────────────────────────┘");
-        }
-
-        public void ShowStatusRow(){
-            Console.Write("║ " + ChickenID);
-            for(int i = 1 ; i <= 10 - ChickenID.ToString().Length - 1; i++) Console.Write(" ");
-            Console.Write("║ " + Quantity);
-            for(int i = 1 ; i <= 10 - Quantity.ToString().Length - 1; i++) Console.Write(" ");
-            Console.Write("║ " + chickenStatus);
-            for(int i = 1 ; i <= 20 - chickenStatus.Length - 1; i++) Console.Write(" ");
-            Console.Write("║ " + CageID);
-            for(int i = 1 ; i <= 11 - CageID.ToString().Length - 1; i++) Console.Write(" ");
-            Console.WriteLine("║");
-        }
     }
 
 }
