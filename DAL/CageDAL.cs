@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace DAL {
 
     public class CageDAL{
-        private MySqlConnection connection = DbConfig.GetConnection();
+        private MySqlConnection connection = DbConfig.GetDefaultConnection();
         private MySqlDataReader reader;
 
         public CageDAL() {}

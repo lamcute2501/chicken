@@ -1,1 +1,1 @@
-server=localhost;user id=root;password=01266211591aA!@;port=3306;database=chickenfarmdb;
+server=localhost;user id=root;password=123456789;port=3306;database=chickenfarmdb;

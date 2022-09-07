@@ -892,8 +892,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "BL >= 1.0.0",
-      "DAL >= 1.0.0",
-      "Persistence >= 1.0.0"
+      "DAL >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -926,9 +925,6 @@
             },
             "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\DAL\\DAL.csproj": {
               "projectPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\DAL\\DAL.csproj"
-            },
-            "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\Persistence\\Persistence.csproj"
             }
           }
         }

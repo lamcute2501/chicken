@@ -5,7 +5,7 @@ namespace DAL {
 
     public class ChickenStatusDAL {
         
-        private MySqlConnection connection = DbConfig.GetConnection();
+        private MySqlConnection connection = DbConfig.GetDefaultConnection();
         private MySqlDataReader reader;
 
         public ChickenStatusDAL() {}
@@ -38,6 +38,44 @@ namespace DAL {
             }
             return result;
         }
+        
+        public bool DeleteChickenStatus(int ck_id,int cg_id,string ck_status){
+            bool result = false;
+            try {
+                connection.Open();
+                MySqlTransaction transaction = connection.BeginTransaction();
+                MySqlCommand cmd = new MySqlCommand("DeleteStatus",connection);
+                cmd.Transaction = transaction;
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ck_id",ck_id);
+                cmd.Parameters["@ck_id"].Direction = System.Data.ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@cg_id",cg_id);
+                cmd.Parameters["@cg_id"].Direction = System.Data.ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@ck_status",ck_status);
+                cmd.Parameters["@ck_status"].Direction = System.Data.ParameterDirection.Input;
+                try{
+                    cmd.ExecuteNonQuery();
+                    transaction.Commit();
+                    result = true;
+                }
+                catch(Exception e){
+                    Console.WriteLine(e.Message);
+                    try{
+                        transaction.Rollback();
+                    }
+                    catch{}
+                }
+                
+            }
+            catch(Exception e) {
+                Console.WriteLine(e.Message);
+            }
+            finally{
+                connection.Close();
+            }
+            return result;
+        }
+
         public ChickenStatus? GetChickenStatus(int ckid,int cgid, string status){
             ChickenStatus? cs = null;
             try {

@@ -4,16 +4,21 @@ namespace DAL {
 
     public class UserDAL {
 
-        private MySqlConnection connection = DbConfig.GetConnection();
+        private MySqlConnection connection = DbConfig.GetDefaultConnection();
         private MySqlDataReader reader;
         string query;
         public UserDAL() {}
 
         public bool CheckUserName(string userName){
             bool result = false;
-            try{
+            if(connection == null)
+                connection = DbConfig.GetDefaultConnection();
+            if(connection.State == System.Data.ConnectionState.Closed)
+            {
                 connection.Open();
-                query = @"select user_id from user where user_name = '" + userName + "';";
+            }
+            try{
+                query = @"SELECT user_id FROM chickenfarmdb.user where user_name = '" + userName + "';";
                 MySqlCommand cmd = new MySqlCommand(query,connection);
                 reader = cmd.ExecuteReader();
                 if(reader.Read()){
@@ -23,6 +28,7 @@ namespace DAL {
             }
             catch(Exception e){
                 Console.WriteLine(e.Message);
+                Console.ReadLine();
             }
             finally{
                 connection.Close();

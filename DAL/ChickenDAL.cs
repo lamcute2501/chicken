@@ -10,7 +10,7 @@ namespace DAL {
     }
 
     public class ChickenDAL {
-        private MySqlConnection connection = DbConfig.GetConnection();
+        private MySqlConnection connection = DbConfig.GetDefaultConnection();
         private MySqlDataReader reader;
         
         public ChickenDAL(){}
@@ -46,6 +46,39 @@ namespace DAL {
             return result;
         }
         
+        public bool DeleteChickenById(int id){
+            bool result = false;
+            try {
+                connection.Open();
+                MySqlTransaction transaction = connection.BeginTransaction();
+                MySqlCommand cmd = new MySqlCommand("DeleteChickenByID",connection);
+                cmd.Transaction = transaction;
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id",id);
+                cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Input;
+                try{
+                    cmd.ExecuteNonQuery();
+                    transaction.Commit();
+                    result = true;
+                }
+                catch(Exception e){
+                    Console.WriteLine(e.Message);
+                    try{
+                        transaction.Rollback();
+                    }
+                    catch{}
+                }
+                
+            }
+            catch(Exception e) {
+                Console.WriteLine(e.Message);
+            }
+            finally{
+                connection.Close();
+            }
+            return result;
+        }
+
         public Chicken GetChickenById(int id){
             Chicken? ck = null;
             try {

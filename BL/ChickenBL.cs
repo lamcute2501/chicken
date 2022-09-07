@@ -14,6 +14,10 @@ namespace BL {
             return ckdal.GetChickenById(id);
         }
 
+        public bool DeleteChickenById(int id){
+            return ckdal.DeleteChickenById(id);
+        }
+
         public List<Chicken> GetChickens(int getFilter,string name){
             return ckdal.GetChickens(getFilter,name);
         }

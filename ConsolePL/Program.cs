@@ -15,19 +15,18 @@ namespace ConsolPL {
             int loginChoice;
             string userName,password;
             do{
+                // sửa time sleep thành biến
                 Console.Clear();
-                loginChoice = Menu("Đăng Nhập",loginMenu);
+                loginChoice = DisplaySP.Menu("Đăng Nhập",loginMenu);
 
-                if(loginChoice == 2){
-                    return;
-                }
-
+                if(loginChoice == 2){return;}
+                if(loginChoice != 1){continue;}
                 // phần dăng nhập
                 Console.Write(" Tên đăng nhập: ");
                 userName = Console.ReadLine()??"";
                 if(usbl.CheckUserName(userName)){
                     Console.Write(" Mật khẩu: ");
-                    password = Console.ReadLine()??"";
+                    password = DisplaySP.GetPassword();
                     if(usbl.CheckPassword(userName,password)){
                         Console.WriteLine(" Đăng nhập thành công !");
                         Thread.Sleep(2000);
@@ -44,21 +43,19 @@ namespace ConsolPL {
                         
                         do{ 
                             Console.Clear();
-                            mainChoice = Menu("Quản lý trại gà - CFMS",mainMenu);
+                            mainChoice = DisplaySP.Menu("Quản lý trại gà - CFMS",mainMenu);
 
                             switch(mainChoice){
                                 case 1:
                                     do{ 
                                         Console.Clear();
-                                        subChoice = Menu("Quản lý loại gà",chickenMenu);
-
-                                        
+                                        subChoice = DisplaySP.Menu("Quản lý loại gà",chickenMenu);
                                         List<Chicken> ckList;
 
                                         switch(subChoice){
                                             case 1:
                                                 Chicken ck = new Chicken();
-                                                if(ckbl.AddChicken(ck.CreateChicken()) != 0){
+                                                if(ckbl.AddChicken((Chicken)Create(ob = ck)) != 0){
                                                     Console.WriteLine(" Thêm thành công !");
                                                 }
                                                 else{
@@ -70,19 +67,19 @@ namespace ConsolPL {
                                                 int id;
                                                 string[] columns = {"ID","Tên Gà","Giá Nhập","Giá Xuất","Mô tả"};
                                                 int[] space = {5,20,12,12,30};
-                                                string[] change = {"Thay đổi giá nhập","Thay đổi giá xuất","Cập nhật mô tả","Thoát"};
+                                                string[] change = {"Thay đổi giá nhập","Thay đổi giá xuất","Cập nhật mô tả","Xóa loại gà","Thoát"};
                                                 ckList = ckbl.GetChickens(2,"");
                                                 if(ckList.Count != 0){
                                                     // update menu------------------------------------
                                                     do{
                                                         Console.Clear();
                                                         ckList = ckbl.GetChickens(2,"");
-                                                        PrintColumns(columns,space,1);
+                                                        DisplaySP.PrintColumns(columns,space,1);
                                                         for(int i = 0 ; i < ckList.Count ; i++){
                                                             // ckList[i].ShowChickenRow();
                                                             ShowRow(ob = ckList[i]);
                                                         }
-                                                        PrintColumns(columns,space,2);
+                                                        DisplaySP.PrintColumns(columns,space,2);
                                                         do{Console.WriteLine(" Nhập ID để xem thông tin chi tiết và sửa đổi hoặc 0 để thoát: ");}
                                                         while(!int.TryParse(Console.ReadLine(), out id));
                                                         if(id != 0){
@@ -99,7 +96,7 @@ namespace ConsolPL {
                                                                     Console.Clear();
                                                                     // ck.ShowChicken();
                                                                     ShowInfo(ob = ck);
-                                                                    updateChoice = MenuChangeInfo(change);
+                                                                    updateChoice = DisplaySP.MenuChangeInfo(change);
                                                                     switch(updateChoice){
                                                                         case 1: 
                                                                             do{Console.Write(" Giá nhập mới: ");}
@@ -132,6 +129,47 @@ namespace ConsolPL {
                                                                             else{
                                                                                 Console.WriteLine(" Cập nhật thất bại!");
                                                                             }
+                                                                            Thread.Sleep(2000);
+                                                                            break;
+                                                                        case 4:
+                                                                            // thêm chức năng xóa 
+                                                                            // kiểm tra có nhóm gà nào của loài gà này không
+                                                                            // nếu không => xóa thẳng
+                                                                            // nếu có => cảnh báo chắc chắn xóa => nếu ok xóa hết các nhóm gà + giảm lượng gà trong chuồng
+                                                                            Console.WriteLine("    Bạn có chắc chắn xóa loại gà này ?\n(Mọi thông tin các nhóm gà và chuồng trại liên quan tới loại gà này đều sẽ bị xóa)\n [1] Đúng    [2] Không");
+                                                                            int importanceChoice;
+                                                                            do{Console.Write(" Lựa chọn: ");}
+                                                                            while(!int.TryParse(Console.ReadLine(),out importanceChoice));
+                                                                            if(importanceChoice == 1){
+                                                                                List<ChickenStatus> chickenStatus = csbl.GetChickenStatus(3,ck.ChickenID.ToString());
+                                                                                if(chickenStatus.Count != 0){
+                                                                                    Console.WriteLine(" Hiện tại vẫn còn loại gà này trong các chuồng!");
+                                                                                    Console.WriteLine("    Bạn vẫn chắc chắn xóa ?\n [1] Đúng   [2] Không");
+                                                                                    do{Console.Write(" Lựa chọn: ");}
+                                                                                    while(!int.TryParse(Console.ReadLine(),out importanceChoice));
+                                                                                    if(importanceChoice == 1){
+                                                                                        for(int i = 0 ; i < chickenStatus.Count ; i++){
+                                                                                            Cage cage = cgbl.GetCageById(chickenStatus[i].CageID);
+                                                                                            // xóa trong chuồng
+                                                                                            cgbl.UpdateCage(chickenStatus[i].CageID,cage.Cage_Name,cage.Max_Capacity,cage.Current_Capacity-chickenStatus[i].Quantity,cage.CageStatus);
+                                                                                            // xóa status
+                                                                                            csbl.DeleteChickenStatus(chickenStatus[i].ChickenID,chickenStatus[i].CageID,chickenStatus[i].chickenStatus);
+                                                                                        }
+                                                                                    }
+                                                                                    else{
+                                                                                        Thread.Sleep(2000);
+                                                                                        break;
+                                                                                    }
+                                                                                }
+                                                                                if(ckbl.DeleteChickenById(ck.ChickenID)){
+                                                                                    Console.WriteLine(" Xóa thành công!");
+                                                                                }
+                                                                                else{
+                                                                                    Console.WriteLine(" Xóa thất bại!");
+                                                                                }
+                                                                            }
+                                                                            Thread.Sleep(2000);
+                                                                            updateChoice = change.Count();
                                                                             break;
                                                                     }
                                                                 }
@@ -180,7 +218,7 @@ namespace ConsolPL {
                                 case 2:
                                     do{ 
                                         Console.Clear();
-                                        subChoice = Menu("Quản lý nhóm gà",chickenStatusMenu);
+                                        subChoice = DisplaySP.Menu("Quản lý nhóm gà",chickenStatusMenu);
 
                                         ChickenStatus? cs;
                                         List<ChickenStatus>? csList;
@@ -197,7 +235,7 @@ namespace ConsolPL {
                                             case 1:
                                             // them cac truong hop o day ga 00 ton tai chuong 0 ton tai status khong hop li
                                                 cs = new ChickenStatus();
-                                                cs = cs.CreateChickenStatus();
+                                                cs = (ChickenStatus)Create(ob = cs);
                                                 if(ckbl.GetChickenById(cs.ChickenID) == null){
                                                     Console.WriteLine(" Loại gà này không tồn tại! Hãy thêm tại 'Quản lí loại gà'");
                                                     Thread.Sleep(2000);
@@ -237,14 +275,14 @@ namespace ConsolPL {
                                                         csList = csbl.GetChickenStatus(2,"");
                                                         Console.Clear();
 
-                                                        PrintColumns(columns,space,1);
+                                                        DisplaySP.PrintColumns(columns,space,1);
                                                         for(int i = 0 ; i < csList.Count ; i++){
                                                             Console.Write($"║ {i+1}");
-                                                            PrintCharacterAndEnd(3 - i.ToString().Length,' ',' ',false);
+                                                            DisplaySP.PrintCharacterAndEnd(3 - i.ToString().Length,' ',' ',false);
                                                             // csList[i].ShowStatusRow();
                                                             ShowRow(ob = csList[i]);
                                                         }
-                                                        PrintColumns(columns,space,2);
+                                                        DisplaySP.PrintColumns(columns,space,2);
                                                         do{Console.WriteLine(" Nhập STT để xem thông tin chi tiết và sửa đổi hoặc 0 để thoát: ");}
                                                         while(!int.TryParse(Console.ReadLine(), out stt) || stt < 0);
                                                         if(stt != 0 && stt <= csList.Count){
@@ -279,7 +317,7 @@ namespace ConsolPL {
                                                                     Console.Clear();
                                                                     // cs.ShowStatus();
                                                                     ShowInfo(ob = cs);
-                                                                    updateChoice = MenuChangeInfo(change);
+                                                                    updateChoice = DisplaySP.MenuChangeInfo(change);
                                                                     switch(updateChoice){
                                                                         case 1: 
                                                                             do{Console.Write(" ID chuồng mới: ");}
@@ -393,6 +431,7 @@ namespace ConsolPL {
                                                                             Thread.Sleep(2000);
                                                                             break;
                                                                         case 4:
+                                                                            if(updateChoice == change.Count()) break;
                                                                             do{Console.Write(" Số lượng : ");}
                                                                             while(!int.TryParse(Console.ReadLine(),out quantity) || quantity < 0 || quantity > cs.Quantity);
                                                                             cage = cgbl.GetCageById(cs.CageID);
@@ -460,14 +499,14 @@ namespace ConsolPL {
                                 case 3:
                                     do{ 
                                         Console.Clear();
-                                        subChoice = Menu("Quản lý chuồng trại",cageMenu);
+                                        subChoice = DisplaySP.Menu("Quản lý chuồng trại",cageMenu);
 
                                         Cage cg;
                                         List<Cage> cgList;
                                         switch(subChoice){
                                             case 1:
                                                 cg = new Cage();
-                                                if(cgbl.AddCage(cg.CreateCage()) != 0){
+                                                if(cgbl.AddCage((Cage)Create(ob = cg)) != 0){
                                                     Console.WriteLine(" Thêm thành công !");
                                                 }
                                                 else{
@@ -486,12 +525,12 @@ namespace ConsolPL {
                                                     do{
                                                         Console.Clear();
                                                         cgList = cgbl.GetCages(2,"");
-                                                        PrintColumns(columns,space,1);
+                                                        DisplaySP.PrintColumns(columns,space,1);
                                                         for(int i = 0 ; i < cgList.Count ; i++){
                                                             // cgList[i].ShowChickenRow();
                                                             ShowRow(ob = cgList[i]);
                                                         }
-                                                        PrintColumns(columns,space,2);
+                                                        DisplaySP.PrintColumns(columns,space,2);
                                                         do{Console.WriteLine(" Nhập ID để xem thông tin chi tiết và sửa đổi hoặc 0 để thoát: ");}
                                                         while(!int.TryParse(Console.ReadLine(), out id));
                                                         if(id != 0){
@@ -507,7 +546,7 @@ namespace ConsolPL {
                                                                     Console.Clear();
                                                                     // cg.ShowCage();
                                                                     ShowInfo(ob = cg);
-                                                                    updateChoice = MenuChangeInfo(change);
+                                                                    updateChoice = DisplaySP.MenuChangeInfo(change);
                                                                     switch(updateChoice){
                                                                         case 1: 
                                                                             Console.Write(" Tên mới: ");
@@ -648,141 +687,104 @@ namespace ConsolPL {
                     Console.WriteLine(" Tên tài khoản không tồn tại!");
                     Thread.Sleep(2000);
                 }
-
             }
             while(loginChoice != loginMenu.Length);
-            
-
-            
         }   
 
-        private static int Menu(string title ,string[] menuItems ){
-            string appName = @"║  _____ _     _      _               ______                    ║
-║ /  __ \ |   (_)    | |              |  ___|                   ║
-║ | /  \/ |__  _  ___| | _____ _ __   | |_ __ _ _ __ _ __ ___   ║
-║ | |   | '_ \| |/ __| |/ / _ \ '_ \  |  _/ _` | '__| '_ ` _ \  ║
-║ | \__/\ | | | | (__|   <  __/ | | | | || (_| | |  | | | | | | ║
-║  \____/_| |_|_|\___|_|\_\___|_| |_| \_| \__,_|_|  |_| |_| |_| ║
-║                                                               ║";
-            string topLine = "╔═══════════════════════════════════════════════════════════════╗";
-            string line = "╟───────────────────────────────────────────────────────────────╢";
-            string endLine = "╚═══════════════════════════════════════════════════════════════╝";
-            int choice = 0;
-            Console.WriteLine(topLine);
-            Console.WriteLine(appName);
-            Console.WriteLine(line);
-            for(int i = 0 ; i < menuItems.Length ; i++){
-                Console.Write($"║ [{i+1}]. " + menuItems[i]);
-                PrintCharacterAndEnd(57-menuItems[i].Length,' ','║',true);
+       public static object Create(object ob) {
+            if(ob is Chicken){
+                decimal parameter;
+                Chicken ck = new Chicken();
+                Console.WriteLine(">>>>>   Loại Gà Mới  <<<<<");
+                Console.Write("Tên gà   : ");
+                ck.ChickenName = Console.ReadLine() ?? "Unset";
+                do{Console.Write("Giá Nhập : ");}
+                while(!decimal.TryParse(Console.ReadLine() , out parameter));
+                ck.ImportPrice = parameter;
+                do{Console.Write("Giá Xuất : ");}
+                while(!decimal.TryParse(Console.ReadLine() , out parameter));
+                ck.ExportPrice = parameter;
+                Console.Write("Mô tả    : ");
+                ck.Decription = Console.ReadLine() ?? "";
+                Console.WriteLine("=============================================================");
+                ob = ck;
             }
-            Console.WriteLine(line);
-            Console.Write("║ " + title);
-            PrintCharacterAndEnd(62-title.Length,' ','║',true);
-            Console.WriteLine(endLine);
-            do{
-                Console.Write(" Lựa chọn: ");
-                try{
-                    int.TryParse(Console.ReadLine(), out choice);
-                }
-                catch{
-                    Console.WriteLine(" Lựa chọn không hợp lệ!");
-                    continue;
-                }
-            }
-            while(choice > menuItems.Length || choice <= 0);
-            return choice;
-        }
+            if(ob is Cage){
+                int parameter;
+                int myChoice;
+                Cage cg = new Cage();
+                Console.WriteLine(">>>>>   Chuồng Mới  <<<<<");
+                Console.Write("Tên chuồng        : ");
+                cg.Cage_Name = Console.ReadLine() ?? "Unset";
+                Console.Write("Sức chứa gà tối đa: ");
+                int.TryParse(Console.ReadLine() , out parameter);
+                cg.Max_Capacity = parameter;
+                Console.Write("Lượng gà hiện tại : ");
+                int.TryParse(Console.ReadLine() , out parameter);
 
-        private static void PrintCharacterAndEnd(int amount, char character,char endCharacter,bool newLine){
-            if(newLine){
-                for(int i = 1 ; i <= amount ; i++)
-                    Console.Write(character);
-                Console.WriteLine(endCharacter);
-            }
-            else{
-                for(int i = 1 ; i <= amount ; i++)
-                    Console.Write(character);
-                Console.Write(endCharacter);
-            }
-        }
+                // xử lí nhập số lượng hiện tại lớn hơn tối đa
+                // while(parameter > cg.Max_Capacity){
+                //     Console.WriteLine(@"Anh bạn à chuồng tối đa chứa được {cg.Max_Capacity} con thôi, {parameter - cg.Max_Capacity} con nữa thì vứt đi đâu? Nhập lại hộ tôi cái!");
+                //     int.TryParse(Console.ReadLine() , out parameter);
+                // }
 
-        private static void  PrintColumns (string[] columns,int[] space, int filter){
-            //╔════╦═════════════════════════════════════════════╗
-            //║ ID ║                                             ║             
-            //╟────╫─────────────────────────────────────────────╢
-            //║    ║                                             ║
-            //╚════╩═════════════════════════════════════════════╝
-            if(filter == 1){
-                 // hien thi top line
-                Console.Write("╔");
-                for(int i = 0; i < columns.Count() ; i++){
-                    if(i != columns.Count() - 1)
-                        PrintCharacterAndEnd(space[i],'═','╦',false);
-                    else    
-                        PrintCharacterAndEnd(space[i],'═','╗',true);
+                cg.Current_Capacity = parameter;
+                Console.Write("Trạng thái chuồng - [1] Hoạt Động  [2] Đóng  [3] Bảo Trì :");
+                int.TryParse(Console.ReadLine(),out myChoice);
+                while(myChoice != 1 && myChoice != 2 && myChoice != 3){
+                    Console.WriteLine("Lựa chọn không hợp lệ! Mời nhập lại : ");
+                    int.TryParse(Console.ReadLine(),out myChoice);
                 }
-                
-                // hien thi ten cot
-                Console.Write("║");
-                for(int i = 0 ; i < columns.Count(); i++){
-                    Console.Write(" " + columns[i]);
-                    if(i != columns.Count() - 1) PrintCharacterAndEnd(space[i] - 1 - columns[i].Length,' ','║',false);
-                    else PrintCharacterAndEnd(space[i] - 1 - columns[i].Length,' ','║',true);
+                switch(myChoice){
+                    case 1:
+                        cg.CageStatus = "Hoạt Động";
+                        break;
+                    case 2:
+                        cg.CageStatus = "Đóng";
+                        break;
+                    case 3:
+                        cg.CageStatus = "Bảo Trì";
+                        break;
+                    default:
+                        break;
                 }
-
-                // line ngan cach
-                Console.Write("╟");
-                for(int i = 0 ; i < columns.Count(); i++){
-                    if(i != columns.Count() - 1) PrintCharacterAndEnd(space[i],'─','╫',false);
-                    else PrintCharacterAndEnd(space[i],'─','╢',true);
-                }
+                Console.WriteLine("=============================================================");
+                ob = cg;                
             }
-            else{
-                // hien thi bot line
-                Console.Write("╚");
-                for(int i = 0; i < columns.Count() ; i++){
-                    if(i != columns.Count() - 1)
-                        PrintCharacterAndEnd(space[i],'═','╩',false);
-                    else    
-                        PrintCharacterAndEnd(space[i],'═','╝',true);
+            if(ob is ChickenStatus){
+                int parameter;
+                int myChoice;
+                ChickenStatus  cs = new ChickenStatus();
+                Console.WriteLine(">>>>>   Thêm Nhóm Gà Mới  <<<<<");
+                do{Console.Write("ID Loại Gà: ");}
+                while(!int.TryParse(Console.ReadLine() , out parameter));
+                cs.ChickenID = parameter;
+                do{Console.Write("Số Lượng  : ");}
+                while(!int.TryParse(Console.ReadLine() , out parameter));
+                cs.Quantity = parameter;
+                do{Console.Write("Giai Đoạn - [1] Giống  [2] Nhỡ  [3] Xuất Chuồng : ");}
+                while(!int.TryParse(Console.ReadLine(),out myChoice) || (myChoice != 1 && myChoice != 2 && myChoice != 3));
+                switch(myChoice){
+                    case 1:
+                        cs.chickenStatus = "Giống";
+                        break;
+                    case 2:
+                        cs.chickenStatus = "Nhỡ";
+                        break;
+                    case 3:
+                        cs.chickenStatus = "Xuất Chuồng";
+                        break;
+                    default:
+                        break;
                 }
+                do{Console.Write("ID Chuồng : ");}
+                while(!int.TryParse(Console.ReadLine() , out parameter));
+                cs.CageID = parameter;
+                Console.WriteLine("=============================================================");
+                ob = cs;
             }
-
-        }
-
-        private static int MenuChangeInfo(string[] infoWillChange){
-            int choice = 0;
-            Console.WriteLine("        ┌──────────────Thay đổi thông tin──────────────┐");
-            //┌──────────────Thay đổi thông tin──────────────┐
-            //│
-            //│
-            //│
-            //│
-            //└──────────────────────────────────────────────┘
-            //
-            Console.Write("        │");
-            PrintCharacterAndEnd(46,' ','│',true);
-            for(int i = 0 ; i < infoWillChange.Length ; i++){
-                Console.Write($"        │ [{i+1}]. " + infoWillChange[i]);
-                PrintCharacterAndEnd(40-infoWillChange[i].Length,' ','│',true);
-            }
-            Console.Write("        │");
-            PrintCharacterAndEnd(46,' ','│',true);
-            Console.WriteLine("        └──────────────────────────────────────────────┘");
-            do{
-                Console.Write(" Lựa chọn: ");
-                try{
-                    int.TryParse(Console.ReadLine(), out choice);
-                }
-                catch{
-                    Console.WriteLine(" Lựa chọn không hợp lệ!");
-                    continue;
-                }
-            }
-            while(choice > infoWillChange.Length || choice <= 0);
-            return choice;
-        }
-       
+            return ob;
+       }
         public static void ShowInfo(object ob){
             if(ob is Chicken){
                 Console.WriteLine("┌─────────────────────────Thông Tin Loại Gà─────────────────────────┐");
@@ -814,48 +816,47 @@ namespace ConsolPL {
             //end line
                 Console.WriteLine("└───────────────────────────────────────────────────────────────────┘");
         }
-
         public static void ShowRow(object ob){
             if(ob is Chicken){
-                Console.Write("║ " + ((Chicken)ob).ChickenID);
-                PrintCharacterAndEnd(5 - ((Chicken)ob).ChickenID.ToString().Length - 1,' ','║',false);
+                DisplaySP.PrintCyanColor("║ " , ((Chicken)ob).ChickenID.ToString());
+                DisplaySP.PrintCharacterAndEnd(5 - ((Chicken)ob).ChickenID.ToString().Length - 1,' ','║',false);
                 Console.Write(" " + ((Chicken)ob).ChickenName);
-                PrintCharacterAndEnd(20 - ((Chicken)ob).ChickenName.Length - 1,' ','║',false);
+                DisplaySP.PrintCharacterAndEnd(20 - ((Chicken)ob).ChickenName.Length - 1,' ','║',false);
                 Console.Write(" " + ((Chicken)ob).ImportPrice);
-                PrintCharacterAndEnd(12 - ((Chicken)ob).ImportPrice.ToString().Length - 1,' ','║',false);
+                DisplaySP.PrintCharacterAndEnd(12 - ((Chicken)ob).ImportPrice.ToString().Length - 1,' ','║',false);
                 Console.Write(" " + ((Chicken)ob).ExportPrice);
-                PrintCharacterAndEnd(12 - ((Chicken)ob).ExportPrice.ToString().Length - 1,' ','║',false);
+                DisplaySP.PrintCharacterAndEnd(12 - ((Chicken)ob).ExportPrice.ToString().Length - 1,' ','║',false);
                 string desCutDown = ((Chicken)ob).Decription;    
                 if (((Chicken)ob).Decription.Length > 28){
                     desCutDown = ((Chicken)ob).Decription.Remove(25);
                     desCutDown =  string.Concat(desCutDown,"...");
                 }
                 Console.Write(" " + desCutDown);
-                PrintCharacterAndEnd(30 - desCutDown.ToString().Length - 1,' ','║',true);
+                DisplaySP.PrintCharacterAndEnd(30 - desCutDown.ToString().Length - 1,' ','║',true);
             }
 
             if(ob is Cage ){
-                Console.Write("║ " + ((Cage)ob).CageID);
-                PrintCharacterAndEnd(5 - ((Cage)ob).CageID.ToString().Length - 1,' ','║',false);
+                DisplaySP.PrintCyanColor("║ " , ((Cage)ob).CageID.ToString());
+                DisplaySP.PrintCharacterAndEnd(5 - ((Cage)ob).CageID.ToString().Length - 1,' ','║',false);
                 Console.Write(" " + ((Cage)ob).Cage_Name);
-                PrintCharacterAndEnd(20 - ((Cage)ob).Cage_Name.Length - 1,' ','║',false);
+                DisplaySP.PrintCharacterAndEnd(20 - ((Cage)ob).Cage_Name.Length - 1,' ','║',false);
                 Console.Write(" " + ((Cage)ob).Max_Capacity);
-                PrintCharacterAndEnd(20 - ((Cage)ob).Max_Capacity.ToString().Length - 1,' ','║',false);
+                DisplaySP.PrintCharacterAndEnd(20 - ((Cage)ob).Max_Capacity.ToString().Length - 1,' ','║',false);
                 Console.Write(" " + ((Cage)ob).Current_Capacity);
-                PrintCharacterAndEnd(20 - ((Cage)ob).Current_Capacity.ToString().Length - 1,' ','║',false);
+                DisplaySP.PrintCharacterAndEnd(20 - ((Cage)ob).Current_Capacity.ToString().Length - 1,' ','║',false);
                 Console.Write(" " + ((Cage)ob).CageStatus);
-                PrintCharacterAndEnd(20 - ((Cage)ob).CageStatus.ToString().Length - 1,' ','║',true);
+                DisplaySP.PrintCharacterAndEnd(20 - ((Cage)ob).CageStatus.ToString().Length - 1,' ','║',true);
             }
 
             if(ob is ChickenStatus){
-                Console.Write("║ " + ((ChickenStatus)ob).ChickenID);
-                PrintCharacterAndEnd(10 - ((ChickenStatus)ob).ChickenID.ToString().Length - 1,' ','║',false);
+                DisplaySP.PrintCyanColor("║ " , ((ChickenStatus)ob).ChickenID.ToString());
+                DisplaySP.PrintCharacterAndEnd(10 - ((ChickenStatus)ob).ChickenID.ToString().Length - 1,' ','║',false);
                 Console.Write(" " + ((ChickenStatus)ob).Quantity);
-                PrintCharacterAndEnd(10 - ((ChickenStatus)ob).Quantity.ToString().Length - 1,' ','║',false);
+                DisplaySP.PrintCharacterAndEnd(10 - ((ChickenStatus)ob).Quantity.ToString().Length - 1,' ','║',false);
                 Console.Write(" " + ((ChickenStatus)ob).chickenStatus);
-                PrintCharacterAndEnd(20 - ((ChickenStatus)ob).chickenStatus.Length - 1,' ','║',false);
+                DisplaySP.PrintCharacterAndEnd(20 - ((ChickenStatus)ob).chickenStatus.Length - 1,' ','║',false);
                 Console.Write(" " + ((ChickenStatus)ob).CageID);
-                PrintCharacterAndEnd(11 - ((ChickenStatus)ob).CageID.ToString().Length - 1,' ','║',true);
+                DisplaySP.PrintCharacterAndEnd(11 - ((ChickenStatus)ob).CageID.ToString().Length - 1,' ','║',true);
             }
 
         }

@@ -38,3 +38,123 @@ C:\Users\hailo\WorkSpace\C#\Semeter1\DAL\bin\Debug\net6.0\Persistence.runtimecon
 C:\Users\hailo\WorkSpace\C#\Semeter1\DAL\bin\Debug\net6.0\Persistence.exe
 C:\Users\hailo\WorkSpace\C#\Semeter1\DAL\bin\Debug\net6.0\Persistence.dll
 C:\Users\hailo\WorkSpace\C#\Semeter1\DAL\bin\Debug\net6.0\Persistence.pdb
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\Persistence.deps.json
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\Persistence.runtimeconfig.json
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\Persistence.exe
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\DAL.exe
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\DAL.deps.json
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\DAL.runtimeconfig.json
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\DAL.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\DAL.pdb
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\Google.Protobuf.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\K4os.Compression.LZ4.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\K4os.Hash.xxHash.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\MySql.Data.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\Ubiety.Dns.Core.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\ZstdNet.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\Persistence.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\bin\Debug\net6.0\Persistence.pdb
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\obj\Debug\net6.0\DAL.csproj.AssemblyReference.cache
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\obj\Debug\net6.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\obj\Debug\net6.0\DAL.AssemblyInfoInputs.cache
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\obj\Debug\net6.0\DAL.AssemblyInfo.cs
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\obj\Debug\net6.0\DAL.csproj.CoreCompileInputs.cache
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\obj\Debug\net6.0\DAL.csproj.CopyComplete
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\obj\Debug\net6.0\DAL.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\obj\Debug\net6.0\refint\DAL.dll
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\obj\Debug\net6.0\DAL.pdb
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache
+D:\tai_lieu\VTC_academy\lap_trinh_c#\OOAD+PRJ1\project\git temp\chicken\DAL\obj\Debug\net6.0\ref\DAL.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\Persistence.deps.json
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\Persistence.runtimeconfig.json
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\Persistence.exe
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\DAL.exe
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\DAL.deps.json
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\DAL.runtimeconfig.json
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\DAL.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\DAL.pdb
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\Google.Protobuf.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\K4os.Compression.LZ4.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\K4os.Hash.xxHash.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\MySql.Data.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\Ubiety.Dns.Core.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\ZstdNet.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\Persistence.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\bin\Debug\net6.0\Persistence.pdb
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\obj\Debug\net6.0\DAL.csproj.AssemblyReference.cache
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\obj\Debug\net6.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\obj\Debug\net6.0\DAL.AssemblyInfoInputs.cache
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\obj\Debug\net6.0\DAL.AssemblyInfo.cs
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\obj\Debug\net6.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\obj\Debug\net6.0\DAL.csproj.CopyComplete
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\obj\Debug\net6.0\DAL.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\obj\Debug\net6.0\refint\DAL.dll
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\obj\Debug\net6.0\DAL.pdb
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache
+C:\Users\hailo\WorkSpace\C#\tester\chicken-20220831T032823Z-001\chicken\DAL\obj\Debug\net6.0\ref\DAL.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\Persistence.deps.json
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\Persistence.runtimeconfig.json
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\Persistence.exe
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\DAL.exe
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\DAL.deps.json
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\DAL.runtimeconfig.json
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\DAL.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\DAL.pdb
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\Google.Protobuf.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\K4os.Compression.LZ4.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\K4os.Hash.xxHash.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\MySql.Data.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\Ubiety.Dns.Core.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\ZstdNet.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\Persistence.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\bin\Debug\net6.0\Persistence.pdb
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\obj\Debug\net6.0\DAL.csproj.AssemblyReference.cache
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\obj\Debug\net6.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\obj\Debug\net6.0\DAL.AssemblyInfoInputs.cache
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\obj\Debug\net6.0\DAL.AssemblyInfo.cs
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\obj\Debug\net6.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\obj\Debug\net6.0\DAL.csproj.CopyComplete
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\obj\Debug\net6.0\DAL.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\obj\Debug\net6.0\refint\DAL.dll
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\obj\Debug\net6.0\DAL.pdb
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache
+C:\Users\hailo\WorkSpace\C#\Semeter1\chicken\DAL\obj\Debug\net6.0\ref\DAL.dll

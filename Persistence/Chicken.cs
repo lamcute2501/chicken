@@ -1,4 +1,6 @@
-﻿namespace Persistence {
+﻿
+
+namespace Persistence {
     public class Chicken {
         public int ChickenID {set;get;}
         public string ChickenName {set;get;}
@@ -8,7 +10,8 @@
         public string Decription {get;set;}
 
         public Chicken(){
-            
+            ChickenName = "No Name";
+            Decription = "";
         }
 
         public Chicken(string name, decimal im_price, decimal ex_price, string desc){
@@ -18,23 +21,23 @@
             Decription = desc;
         }
 
-        public Chicken CreateChicken(){
-            decimal parameter;
-            Chicken ck = new Chicken();
-            Console.WriteLine(">>>>>   Loại Gà Mới  <<<<<");
-            Console.Write("Tên gà   : ");
-            ck.ChickenName = Console.ReadLine() ?? "Unset";
-            do{Console.Write("Giá Nhập : ");}
-            while(!decimal.TryParse(Console.ReadLine() , out parameter));
-            ck.ImportPrice = parameter;
-            do{Console.Write("Giá Xuất : ");}
-            while(!decimal.TryParse(Console.ReadLine() , out parameter));
-            ck.ExportPrice = parameter;
-            Console.Write("Mô tả    : ");
-            ck.Decription = Console.ReadLine() ?? "";
-            Console.WriteLine("=============================================================");
-            return ck;
-        }
+        // public Chicken CreateChicken(){
+        //     decimal parameter;
+        //     Chicken ck = new Chicken();
+        //     Console.WriteLine(">>>>>   Loại Gà Mới  <<<<<");
+        //     Console.Write("Tên gà   : ");
+        //     ck.ChickenName = Console.ReadLine() ?? "Unset";
+        //     do{Console.Write("Giá Nhập : ");}
+        //     while(!decimal.TryParse(Console.ReadLine() , out parameter));
+        //     ck.ImportPrice = parameter;
+        //     do{Console.Write("Giá Xuất : ");}
+        //     while(!decimal.TryParse(Console.ReadLine() , out parameter));
+        //     ck.ExportPrice = parameter;
+        //     Console.Write("Mô tả    : ");
+        //     ck.Decription = Console.ReadLine() ?? "";
+        //     Console.WriteLine("=============================================================");
+        //     return ck;
+        // }
 
         public void ShowChicken(){
             char[] desNor =  Decription.ToCharArray();
