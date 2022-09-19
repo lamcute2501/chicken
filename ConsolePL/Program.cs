@@ -15,7 +15,7 @@ namespace ConsolPL {
             int loginChoice;
             string userName,password;
             do{
-                // sửa time sleep thành biến
+                // sửa time sleep thành biến-----------------------
                 Console.Clear();
                 loginChoice = DisplaySP.Menu("Đăng Nhập",loginMenu);
 
@@ -28,7 +28,7 @@ namespace ConsolPL {
                     Console.Write(" Mật khẩu: ");
                     password = DisplaySP.GetPassword();
                     if(usbl.CheckPassword(userName,password)){
-                        Console.WriteLine(" Đăng nhập thành công !");
+                        DisplaySP.PrintColor(" Đăng nhập thành công !",ConsoleColor.Green,true);
                         Thread.Sleep(2000);
                         int mainChoice = 0,subChoice,updateChoice;
                         string[] mainMenu = {"Quản lý loại gà", "Quản lý nhóm gà","Quản lý chuồng trại","Đăng xuất"};
@@ -56,10 +56,10 @@ namespace ConsolPL {
                                             case 1:
                                                 Chicken ck = new Chicken();
                                                 if(ckbl.AddChicken((Chicken)Create(ob = ck)) != 0){
-                                                    Console.WriteLine(" Thêm thành công !");
+                                                    DisplaySP.PrintColor(" Thêm thành công !", ConsoleColor.Green, true);
                                                 }
                                                 else{
-                                                    Console.WriteLine(" Thêm thất bại !");
+                                                    DisplaySP.PrintColor(" Thêm thất bại !", ConsoleColor.Red, true);
                                                 }
                                                 Thread.Sleep(2000);
                                                 break;
@@ -86,7 +86,7 @@ namespace ConsolPL {
                                                             // tim ga theo id de sua doi
                                                             ck = ckbl.GetChickenById(id);
                                                             if(ck == null){
-                                                                Console.WriteLine(" ID không tồn tại!");
+                                                                DisplaySP.PrintColor(" ID không tồn tại!",ConsoleColor.Red,true);
                                                                 Thread.Sleep(2000);
                                                             }
                                                             else{    
@@ -102,11 +102,10 @@ namespace ConsolPL {
                                                                             do{Console.Write(" Giá nhập mới: ");}
                                                                             while(!decimal.TryParse(Console.ReadLine(),out newPrice));
                                                                             if(ckbl.UpdateChicken(ck.ChickenName,newPrice,ck.ExportPrice,ck.Decription,ck.ChickenID)){
-                                                                                Console.WriteLine(" Cập nhật hoàn tất!");
-
+                                                                                DisplaySP.PrintColor(" Cập nhật hoàn tất!",ConsoleColor.Green,true);
                                                                             }
                                                                             else{
-                                                                                Console.WriteLine(" Cập nhật thất bại!");
+                                                                                DisplaySP.PrintColor(" Cập nhật thất bại!",ConsoleColor.Red,true);
                                                                             }
                                                                             Thread.Sleep(2000);
                                                                             break;
@@ -114,20 +113,20 @@ namespace ConsolPL {
                                                                             do{Console.Write(" Giá xuất mới: ");}
                                                                             while(!decimal.TryParse(Console.ReadLine(),out newPrice));
                                                                             if(ckbl.UpdateChicken(ck.ChickenName,ck.ImportPrice,newPrice,ck.Decription,ck.ChickenID)){
-                                                                                Console.WriteLine(" Cập nhật hoàn tất!");
+                                                                                DisplaySP.PrintColor(" Cập nhật hoàn tất!",ConsoleColor.Green,true);
                                                                             }
                                                                             else{
-                                                                                Console.WriteLine(" Cập nhật thất bại!");
+                                                                                DisplaySP.PrintColor(" Cập nhật thất bại!",ConsoleColor.Red,true);
                                                                             }
                                                                             Thread.Sleep(2000);
                                                                             break;
                                                                         case 3:
                                                                             Console.Write(" Mô tả mới: ");
                                                                             if(ckbl.UpdateChicken(ck.ChickenName,ck.ImportPrice,ck.ExportPrice,Console.ReadLine()??"",ck.ChickenID)){
-                                                                                Console.WriteLine(" Cập nhật hoàn tất!");
+                                                                                DisplaySP.PrintColor(" Cập nhật hoàn tất!",ConsoleColor.Green,true);
                                                                             }
                                                                             else{
-                                                                                Console.WriteLine(" Cập nhật thất bại!");
+                                                                                DisplaySP.PrintColor(" Cập nhật thất bại!",ConsoleColor.Red,true);
                                                                             }
                                                                             Thread.Sleep(2000);
                                                                             break;
@@ -162,10 +161,10 @@ namespace ConsolPL {
                                                                                     }
                                                                                 }
                                                                                 if(ckbl.DeleteChickenById(ck.ChickenID)){
-                                                                                    Console.WriteLine(" Xóa thành công!");
+                                                                                    DisplaySP.PrintColor(" Xóa thành công!", ConsoleColor.Green,true);
                                                                                 }
                                                                                 else{
-                                                                                    Console.WriteLine(" Xóa thất bại!");
+                                                                                    DisplaySP.PrintColor(" Xóa thất bại!",ConsoleColor.Red, true);
                                                                                 }
                                                                             }
                                                                             Thread.Sleep(2000);
@@ -180,7 +179,7 @@ namespace ConsolPL {
                                                     while(id != 0);
                                                 }
                                                 else{
-                                                    Console.WriteLine(" Danh sách rỗng :(");
+                                                    DisplaySP.PrintColor(" Danh sách rỗng :(",ConsoleColor.Red, true);
                                                     Thread.Sleep(2000);
                                                 }
                                                 break;
@@ -194,7 +193,7 @@ namespace ConsolPL {
                                                     Thread.Sleep(5000);
                                                 }
                                                 else{
-                                                    Console.WriteLine(" Không tìm thấy !");
+                                                    DisplaySP.PrintColor(" Không tìm thấy !",ConsoleColor.Red,true);
                                                     Thread.Sleep(2000);
                                                 }
                                                 break;
@@ -207,7 +206,7 @@ namespace ConsolPL {
                                                     Thread.Sleep(5000);
                                                 }
                                                 else{
-                                                    Console.WriteLine(" Không tìm thấy !");
+                                                    DisplaySP.PrintColor(" Không tìm thấy !",ConsoleColor.Red,true);
                                                     Thread.Sleep(2000);
                                                 }
                                                 break;
@@ -237,32 +236,32 @@ namespace ConsolPL {
                                                 cs = new ChickenStatus();
                                                 cs = (ChickenStatus)Create(ob = cs);
                                                 if(ckbl.GetChickenById(cs.ChickenID) == null){
-                                                    Console.WriteLine(" Loại gà này không tồn tại! Hãy thêm tại 'Quản lí loại gà'");
+                                                    DisplaySP.PrintColor(" Loại gà này không tồn tại! Hãy thêm tại 'Quản lí loại gà'",ConsoleColor.Red, true);
                                                     Thread.Sleep(2000);
                                                     break;
                                                 }
                                                 cage = new Cage();
                                                 cage = cgbl.GetCageById(cs.CageID);
                                                 if(cage == null){
-                                                    Console.WriteLine(" Chuồng này không tồn tại! Hãy thêm tại 'Quản lí chuồng trại'");
+                                                    DisplaySP.PrintColor(" Chuồng này không tồn tại! Hãy thêm tại 'Quản lí chuồng trại'",ConsoleColor.Red,true);
                                                     Thread.Sleep(2000);
                                                     break;
                                                 }
                                                 if(string.Compare(cage.CageStatus,"Bảo Trì") == 0 || string.Compare(cage.CageStatus,"Đóng") == 0){
-                                                    Console.WriteLine(" Chuồng này đang {0}, không thể thêm gà!",cage.CageStatus);
+                                                    DisplaySP.PrintColor($" Chuồng này đang {cage.CageStatus}, không thể thêm gà!", ConsoleColor.Red,true);
                                                     Thread.Sleep(2000);
                                                     break;
                                                 }
                                                 if(cage.Max_Capacity < cs.Quantity || cage.Max_Capacity-cage.Current_Capacity < cs.Quantity){
-                                                    Console.WriteLine(" Chuồng chỉ còn {0} chỗ trống, không đủ sức chứa {1} con gà",cage.Max_Capacity-cage.Current_Capacity,cs.Quantity);
+                                                    DisplaySP.PrintColor($" Chuồng chỉ còn {cage.Max_Capacity-cage.Current_Capacity} chỗ trống, không đủ sức chứa {cs.Quantity} con gà", ConsoleColor.Red,true);
                                                     Thread.Sleep(2000);
                                                     break;
                                                 }
                                                 if(csbl.AddStatus(cs) != 0 && cgbl.UpdateCage(cage.CageID,cage.Cage_Name,cage.Max_Capacity,cage.Current_Capacity+cs.Quantity,cage.CageStatus)){
-                                                    Console.WriteLine(" Thêm thành công !");
+                                                    DisplaySP.PrintColor(" Thêm thành công !", ConsoleColor.Green,true);
                                                 }
                                                 else{
-                                                    Console.WriteLine(" Thêm thất bại !");
+                                                    DisplaySP.PrintColor(" Thêm thất bại !", ConsoleColor.Red,true);
                                                 }
                                                 Thread.Sleep(2000);
                                                 break;
@@ -292,7 +291,7 @@ namespace ConsolPL {
                                                             // tim nhom ga theo id de sua doi
                                                             cs = csbl.GetChickenStatus(csList[stt].ChickenID,csList[stt].CageID,csList[stt].chickenStatus);
                                                             if(cs == null){
-                                                                Console.WriteLine(" STT không hợp lệ!");
+                                                                DisplaySP.PrintColor(" STT không hợp lệ!",ConsoleColor.Red,true);
                                                                 Thread.Sleep(2000);
                                                             }
                                                             else{    
@@ -311,9 +310,9 @@ namespace ConsolPL {
                                                                 int quantity;
                                                                 int newId;
                                                                 Cage curentCage = cgbl.GetCageById(cs.CageID);
-
+                                                                cs = csbl.GetChickenStatus(csList[stt].ChickenID,csList[stt].CageID,csList[stt].chickenStatus);
+                                                                if(cs != null)
                                                                 do{
-                                                                    cs = csbl.GetChickenStatus(csList[stt].ChickenID,csList[stt].CageID,csList[stt].chickenStatus);
                                                                     Console.Clear();
                                                                     // cs.ShowStatus();
                                                                     ShowInfo(ob = cs);
@@ -324,12 +323,12 @@ namespace ConsolPL {
                                                                             while(!int.TryParse(Console.ReadLine(),out newId) || cs.CageID == newId);
                                                                             cage = cgbl.GetCageById(newId);
                                                                             if(cage == null){
-                                                                                Console.Write(" Chuồng không tồn tại !");
+                                                                                DisplaySP.PrintColor(" Chuồng không tồn tại !",ConsoleColor.Red,false);
                                                                                 Thread.Sleep(2000);
                                                                                 break;
                                                                             }
                                                                             if(string.Compare(cage.CageStatus,"Hoạt Động") != 0){
-                                                                                Console.WriteLine(" Chuồng đang bảo trì hoặc đã đóng cửa!");
+                                                                                DisplaySP.PrintColor(" Chuồng đang bảo trì hoặc đã đóng cửa!",ConsoleColor.Red,true);
                                                                                 Thread.Sleep(2000);
                                                                                 break;
                                                                             }
@@ -362,10 +361,10 @@ namespace ConsolPL {
                                                                             cgbl.UpdateCage(cage.CageID,cage.Cage_Name,cage.Max_Capacity,cage.Current_Capacity+quantity,cage.CageStatus);
                                                                             cgbl.UpdateCage(curentCage.CageID,curentCage.Cage_Name,curentCage.Max_Capacity,curentCage.Current_Capacity - quantity,curentCage.CageStatus);
                                                                             if(csbl.UpdateChickenStatus(cs.ChickenID,cs.Quantity-quantity,cs.chickenStatus,cs.CageID,cs.CageID)){
-                                                                                Console.WriteLine(" Cập nhật hoàn tất!");
+                                                                                DisplaySP.PrintColor(" Cập nhật hoàn tất!",ConsoleColor.Green,true);
                                                                             }
                                                                             else{
-                                                                                Console.WriteLine(" Cập nhật thất bại!");
+                                                                                DisplaySP.PrintColor(" Cập nhật thất bại!",ConsoleColor.Red,true);
                                                                             }
                                                                             Thread.Sleep(2000);
                                                                             break;
@@ -402,10 +401,10 @@ namespace ConsolPL {
                                                                                 csbl.AddStatus(new ChickenStatus(cs.ChickenID,quantity,cs.chickenStatus,cs.CageID));
                                                                             }
                                                                             if(csbl.UpdateChickenStatus(cs.ChickenID,cs.Quantity-quantity,oldStatus,cs.CageID,cs.CageID)){
-                                                                                Console.WriteLine(" Cập nhật hoàn tất!");
+                                                                                DisplaySP.PrintColor(" Cập nhật hoàn tất!",ConsoleColor.Green,true);
                                                                             }
                                                                             else{
-                                                                                Console.WriteLine(" Cập nhật thất bại!");
+                                                                                DisplaySP.PrintColor(" Cập nhật thất bại!",ConsoleColor.Red,true);
                                                                             }
                                                                             Thread.Sleep(2000); 
                                                                             break;
@@ -422,11 +421,11 @@ namespace ConsolPL {
                                                                             else{
                                                                                 cgbl.UpdateCage(cage.CageID,cage.Cage_Name,cage.Max_Capacity,cage.Current_Capacity + quantity, cage.CageStatus);    
                                                                                 if(csbl.UpdateChickenStatus(cs.ChickenID,cs.Quantity+quantity,cs.chickenStatus,cs.CageID,cs.CageID)){
-                                                                                    Console.WriteLine(" Cập nhật thành công!");
-                                                                                }
-                                                                                else{
-                                                                                    Console.WriteLine(" Cập nhật thất bại!");
-                                                                                }
+                                                                                DisplaySP.PrintColor(" Cập nhật hoàn tất!",ConsoleColor.Green,true);
+                                                                            }
+                                                                            else{
+                                                                                DisplaySP.PrintColor(" Cập nhật thất bại!",ConsoleColor.Red,true);
+                                                                            }
                                                                             }
                                                                             Thread.Sleep(2000);
                                                                             break;
@@ -437,10 +436,10 @@ namespace ConsolPL {
                                                                             cage = cgbl.GetCageById(cs.CageID);
                                                                             cgbl.UpdateCage(cage.CageID,cage.Cage_Name,cage.Max_Capacity,cage.Current_Capacity - quantity, cage.CageStatus);
                                                                             if(csbl.UpdateChickenStatus(cs.ChickenID,cs.Quantity-quantity,cs.chickenStatus,cs.CageID,cs.CageID)){
-                                                                                Console.WriteLine(" Cập nhật hoàn tất!");
+                                                                                DisplaySP.PrintColor(" Cập nhật hoàn tất!",ConsoleColor.Green,true);
                                                                             }
                                                                             else{
-                                                                                Console.WriteLine(" Cập nhật thất bại!");
+                                                                                DisplaySP.PrintColor(" Cập nhật thất bại!",ConsoleColor.Red,true);
                                                                             }
                                                                             Thread.Sleep(2000);
                                                                             break;
@@ -455,7 +454,7 @@ namespace ConsolPL {
                                                     while(stt != 0);
                                                 }
                                                 else{
-                                                    Console.WriteLine(" Danh sách rỗng :(");
+                                                    DisplaySP.PrintColor(" Danh sách rỗng :(",ConsoleColor.Red,true);
                                                     Thread.Sleep(2000);
                                                 }
                                                 break;
@@ -470,7 +469,7 @@ namespace ConsolPL {
                                                     Thread.Sleep(5000*csList.Count);
                                                 }
                                                 else{
-                                                    Console.WriteLine(" Không tìm thấy !");
+                                                    DisplaySP.PrintColor(" Không tìm thấy !",ConsoleColor.Red,true);
                                                     Thread.Sleep(2000);
                                                 }
                                                 break;
@@ -488,7 +487,7 @@ namespace ConsolPL {
                                                     
                                                 }
                                                 else{
-                                                    Console.WriteLine(" Không tìm thấy !");
+                                                    DisplaySP.PrintColor(" Không tìm thấy !",ConsoleColor.Red,true);
                                                     Thread.Sleep(2000);
                                                 }
                                                 break;
@@ -507,10 +506,10 @@ namespace ConsolPL {
                                             case 1:
                                                 cg = new Cage();
                                                 if(cgbl.AddCage((Cage)Create(ob = cg)) != 0){
-                                                    Console.WriteLine(" Thêm thành công !");
+                                                    DisplaySP.PrintColor(" Thêm thành công !",ConsoleColor.Green,true);
                                                 }
                                                 else{
-                                                    Console.WriteLine(" Thêm thất bại !");
+                                                    DisplaySP.PrintColor(" Thêm thất bại !",ConsoleColor.Red,true);
                                                 }
                                                 Thread.Sleep(2000);
                                                 break;
@@ -537,7 +536,7 @@ namespace ConsolPL {
                                                             // tim ga theo id de sua doi
                                                             cg = cgbl.GetCageById(id);
                                                             if(cg == null){
-                                                                Console.WriteLine(" ID không tồn tại!");
+                                                                DisplaySP.PrintColor(" ID không tồn tại!",ConsoleColor.Red,true);
                                                                 Thread.Sleep(2000);
                                                             }
                                                             else{    
@@ -554,16 +553,16 @@ namespace ConsolPL {
                                                                             List<Cage>? cageList;
                                                                             cageList = cgbl.GetCages(1,newName);
                                                                             if(cageList.Count != 0){
-                                                                                Console.WriteLine(" Chuồng đã tồn tại !");
+                                                                                DisplaySP.PrintColor(" Chuồng đã tồn tại !",ConsoleColor.Red,true);
                                                                                 Thread.Sleep(2000);
                                                                                 break;
                                                                             }
                                                                             if(cgbl.UpdateCage(cg.CageID,newName,cg.Max_Capacity,cg.Current_Capacity,cg.CageStatus)){
-                                                                                Console.WriteLine(" Cập nhật hoàn tất!");
+                                                                                DisplaySP.PrintColor(" Cập nhật hoàn tất!",ConsoleColor.Green,true);
 
                                                                             }
                                                                             else{
-                                                                                Console.WriteLine(" Cập nhật thất bại!");
+                                                                                DisplaySP.PrintColor(" Cập nhật thất bại!",ConsoleColor.Red,true);
                                                                             }
                                                                             Thread.Sleep(2000);
                                                                             break;
@@ -585,10 +584,10 @@ namespace ConsolPL {
                                                                                     break;
                                                                             }
                                                                             if(cgbl.UpdateCage(cg.CageID,cg.Cage_Name,cg.Max_Capacity,cg.Current_Capacity,cg.CageStatus)){
-                                                                                Console.WriteLine(" Cập nhật hoàn tất!");
+                                                                                DisplaySP.PrintColor(" Cập nhật hoàn tất!",ConsoleColor.Green,true);
                                                                             }
                                                                             else{
-                                                                                Console.WriteLine(" Cập nhật thất bại!");
+                                                                                DisplaySP.PrintColor(" Cập nhật thất bại!",ConsoleColor.Red,true);
                                                                             }
                                                                             Thread.Sleep(2000);
                                                                             break;
@@ -601,10 +600,10 @@ namespace ConsolPL {
                                                                                     do{Console.Write(" Số gà có thể chứa thêm: ");}
                                                                                     while(!int.TryParse(Console.ReadLine(),out quantity) || quantity < 0);
                                                                                     if(cgbl.UpdateCage(cg.CageID,cg.Cage_Name,cg.Max_Capacity+quantity,cg.Current_Capacity,cg.CageStatus)){
-                                                                                        Console.WriteLine(" Cập nhật hoàn tất");
+                                                                                        DisplaySP.PrintColor(" Cập nhật hoàn tất",ConsoleColor.Green,true);
                                                                                     }
                                                                                     else{
-                                                                                        Console.WriteLine(" Cập nhật thất bại!");
+                                                                                        DisplaySP.PrintColor(" Cập nhật thất bại!",ConsoleColor.Red,true);
                                                                                     }
                                                                                     Thread.Sleep(2000);
                                                                                     break;
@@ -617,10 +616,10 @@ namespace ConsolPL {
                                                                                         break;
                                                                                     }
                                                                                     if(cgbl.UpdateCage(cg.CageID,cg.Cage_Name,cg.Max_Capacity-quantity,cg.Current_Capacity,cg.CageStatus)){
-                                                                                        Console.WriteLine(" Cập nhật hoàn tất");
+                                                                                        DisplaySP.PrintColor(" Cập nhật hoàn tất",ConsoleColor.Green,true);
                                                                                     }
                                                                                     else{
-                                                                                        Console.WriteLine(" Cập nhật thất bại!");
+                                                                                        DisplaySP.PrintColor(" Cập nhật thất bại!",ConsoleColor.Red,true);
                                                                                     }
                                                                                     Thread.Sleep(2000);
                                                                                     break;
@@ -637,7 +636,7 @@ namespace ConsolPL {
                                                     while(id != 0);
                                                 }
                                                 else{
-                                                    Console.WriteLine(" Danh sách rỗng :(");
+                                                    DisplaySP.PrintColor(" Danh sách rỗng :(",ConsoleColor.Red,true);
                                                     Thread.Sleep(2000);
                                                 }
                                                 break;
@@ -651,7 +650,7 @@ namespace ConsolPL {
                                                     Thread.Sleep(5000);
                                                 }
                                                 else{
-                                                    Console.WriteLine(" Không tìm thấy !");
+                                                    DisplaySP.PrintColor(" Không tìm thấy !",ConsoleColor.Red,true);
                                                     Thread.Sleep(2000);
                                                 }
                                                 break;
@@ -664,7 +663,7 @@ namespace ConsolPL {
                                                     Thread.Sleep(5000);
                                                 }
                                                 else{
-                                                    Console.WriteLine(" Không tìm thấy !");
+                                                    DisplaySP.PrintColor(" Không tìm thấy !",ConsoleColor.Red,true);
                                                     Thread.Sleep(2000);
                                                 }
                                                 break;
@@ -679,46 +678,52 @@ namespace ConsolPL {
 
                     }
                     else{
-                        Console.WriteLine(" Mật khẩu không chính xác!");
+                        DisplaySP.PrintColor(" Mật khẩu không chính xác!",ConsoleColor.Red,true);
                         Thread.Sleep(2000);
                     }
                 }
                 else{
-                    Console.WriteLine(" Tên tài khoản không tồn tại!");
+                    DisplaySP.PrintColor(" Tên tài khoản không tồn tại!",ConsoleColor.Red,true);
                     Thread.Sleep(2000);
                 }
             }
             while(loginChoice != loginMenu.Length);
         }   
 
-       public static object Create(object ob) {
+        public static object Create(object ob) {
+            DisplaySP.PrintColor("───────────────────────────────────────────────────────────────────",ConsoleColor.Cyan,true);
             if(ob is Chicken){
                 decimal parameter;
                 Chicken ck = new Chicken();
-                Console.WriteLine(">>>>>   Loại Gà Mới  <<<<<");
+                DisplaySP.WriteMid(" << Loại Gà Mới >> ",0,1,2);
                 Console.Write("Tên gà   : ");
                 ck.ChickenName = Console.ReadLine() ?? "Unset";
+                DisplaySP.SetCurSor(2,Console.CursorTop);
                 do{Console.Write("Giá Nhập : ");}
                 while(!decimal.TryParse(Console.ReadLine() , out parameter));
                 ck.ImportPrice = parameter;
+                DisplaySP.SetCurSor(2,Console.CursorTop);
                 do{Console.Write("Giá Xuất : ");}
                 while(!decimal.TryParse(Console.ReadLine() , out parameter));
                 ck.ExportPrice = parameter;
+                DisplaySP.SetCurSor(2,Console.CursorTop);
                 Console.Write("Mô tả    : ");
                 ck.Decription = Console.ReadLine() ?? "";
-                Console.WriteLine("=============================================================");
+                DisplaySP.SetCurSor(2,Console.CursorTop);
                 ob = ck;
             }
             if(ob is Cage){
                 int parameter;
                 int myChoice;
                 Cage cg = new Cage();
-                Console.WriteLine(">>>>>   Chuồng Mới  <<<<<");
+                DisplaySP.WriteMid(" << Chuồng Mới >> ",0,1,2);
                 Console.Write("Tên chuồng        : ");
                 cg.Cage_Name = Console.ReadLine() ?? "Unset";
+                DisplaySP.SetCurSor(2,Console.CursorTop);
                 Console.Write("Sức chứa gà tối đa: ");
                 int.TryParse(Console.ReadLine() , out parameter);
                 cg.Max_Capacity = parameter;
+                DisplaySP.SetCurSor(2,Console.CursorTop);
                 Console.Write("Lượng gà hiện tại : ");
                 int.TryParse(Console.ReadLine() , out parameter);
 
@@ -729,9 +734,11 @@ namespace ConsolPL {
                 // }
 
                 cg.Current_Capacity = parameter;
+                DisplaySP.SetCurSor(2,Console.CursorTop);
                 Console.Write("Trạng thái chuồng - [1] Hoạt Động  [2] Đóng  [3] Bảo Trì :");
                 int.TryParse(Console.ReadLine(),out myChoice);
                 while(myChoice != 1 && myChoice != 2 && myChoice != 3){
+                    DisplaySP.SetCurSor(2,Console.CursorTop);
                     Console.WriteLine("Lựa chọn không hợp lệ! Mời nhập lại : ");
                     int.TryParse(Console.ReadLine(),out myChoice);
                 }
@@ -748,20 +755,22 @@ namespace ConsolPL {
                     default:
                         break;
                 }
-                Console.WriteLine("=============================================================");
                 ob = cg;                
             }
             if(ob is ChickenStatus){
                 int parameter;
                 int myChoice;
                 ChickenStatus  cs = new ChickenStatus();
-                Console.WriteLine(">>>>>   Thêm Nhóm Gà Mới  <<<<<");
+                Console.WriteLine(" << Thêm Nhóm Gà Mới >> ");
+                DisplaySP.SetCurSor(2,Console.CursorTop);
                 do{Console.Write("ID Loại Gà: ");}
                 while(!int.TryParse(Console.ReadLine() , out parameter));
                 cs.ChickenID = parameter;
+                DisplaySP.SetCurSor(2,Console.CursorTop);
                 do{Console.Write("Số Lượng  : ");}
                 while(!int.TryParse(Console.ReadLine() , out parameter));
                 cs.Quantity = parameter;
+                DisplaySP.SetCurSor(2,Console.CursorTop);
                 do{Console.Write("Giai Đoạn - [1] Giống  [2] Nhỡ  [3] Xuất Chuồng : ");}
                 while(!int.TryParse(Console.ReadLine(),out myChoice) || (myChoice != 1 && myChoice != 2 && myChoice != 3));
                 switch(myChoice){
@@ -777,48 +786,54 @@ namespace ConsolPL {
                     default:
                         break;
                 }
+                DisplaySP.SetCurSor(2,Console.CursorTop);
                 do{Console.Write("ID Chuồng : ");}
                 while(!int.TryParse(Console.ReadLine() , out parameter));
                 cs.CageID = parameter;
-                Console.WriteLine("=============================================================");
                 ob = cs;
             }
+            DisplaySP.PrintColor("───────────────────────────────────────────────────────────────────",ConsoleColor.Cyan,true);
             return ob;
        }
         public static void ShowInfo(object ob){
+            DisplaySP.PrintColor(DefaultClass.TopLine,ConsoleColor.Cyan,true);
+            DisplaySP.BorderCyanColor(" ");
+            if(ob is Chicken)
+                DisplaySP.WriteMid("Thông Tin Loại Gà",0,1,0);
+            if(ob is Cage)
+                DisplaySP.WriteMid("Thông Tin Chuồng Trại",0,1,0);
+            if(ob is ChickenStatus)
+                DisplaySP.WriteMid("Thông Tin Nhóm Gà",0,1,0);
+            DisplaySP.PrintColor(DefaultClass.InfoTopLine,ConsoleColor.Cyan,true);
+
             if(ob is Chicken){
-                Console.WriteLine("┌─────────────────────────Thông Tin Loại Gà─────────────────────────┐");
-                Console.WriteLine("     ID Gà   : " + ((Chicken)ob).ChickenID);
-                Console.WriteLine("     Tên Gà  : " + ((Chicken)ob).ChickenName);
-                Console.WriteLine("     Giá Nhập: " + ((Chicken)ob).ImportPrice);
-                Console.WriteLine("     Giá Xuất: " + ((Chicken)ob).ExportPrice);
-                Console.WriteLine("     Mô tả   : " + ((Chicken)ob).Decription);
+                DisplaySP.PrintInfor("ID Gà   ", ((Chicken)ob).ChickenID.ToString());
+                DisplaySP.PrintInfor("Tên Gà  ", ((Chicken)ob).ChickenName);
+                DisplaySP.PrintInfor("Giá Nhập", ((Chicken)ob).ImportPrice.ToString());
+                DisplaySP.PrintInfor("Giá Xuất", ((Chicken)ob).ExportPrice.ToString());
+                DisplaySP.PrintInfor("Mô tả   ", ((Chicken)ob).Decription);
             }
-            
 
             if(ob is Cage){
-                Console.WriteLine("┌───────────────────────Thông Tin Chuồng Trại───────────────────────┐");
-                Console.WriteLine("    ID Chuồng         : " +((Cage)ob).CageID);
-                Console.WriteLine("    Tên Chuồng        : " +((Cage)ob).Cage_Name);
-                Console.WriteLine("    Sức Chứa Tối Đa   : " +((Cage)ob).Max_Capacity);
-                Console.WriteLine("    Lượng Gà Hiện Tại : " +((Cage)ob).Current_Capacity);
-                Console.WriteLine("    Trạng Thái Chuồng : " +((Cage)ob).CageStatus);
+                DisplaySP.PrintInfor("ID Chuồng        ", ((Cage)ob).CageID.ToString());
+                DisplaySP.PrintInfor("Tên Chuồng       ", ((Cage)ob).Cage_Name);
+                DisplaySP.PrintInfor("Sức Chứa Tối Đa  ", ((Cage)ob).Max_Capacity.ToString());
+                DisplaySP.PrintInfor("Lượng Gà Hiện Tại", ((Cage)ob).Current_Capacity.ToString());
+                DisplaySP.PrintInfor("Trạng Thái Chuồng", ((Cage)ob).CageStatus);
             }
 
             if(ob is ChickenStatus){
-                Console.WriteLine("┌─────────────────────────Thông Tin Nhóm Gà─────────────────────────┐");
-                Console.WriteLine("     ID Gà     : " + ((ChickenStatus)ob).ChickenID);
-                Console.WriteLine("     Số Lượng  : " + ((ChickenStatus)ob).Quantity);
-                Console.WriteLine("     Giai Đoạn : " + ((ChickenStatus)ob).chickenStatus);
-                Console.WriteLine("     ID Chuồng : " + ((ChickenStatus)ob).CageID);
+                DisplaySP.PrintInfor("ID Gà    ", ((ChickenStatus)ob).ChickenID.ToString());
+                DisplaySP.PrintInfor("Số Lượng ", ((ChickenStatus)ob).Quantity.ToString());
+                DisplaySP.PrintInfor("Giai Đoạn", ((ChickenStatus)ob).chickenStatus);
+                DisplaySP.PrintInfor("ID Chuồng", ((ChickenStatus)ob).CageID.ToString());
             }
-
+            DisplaySP.PrintColor(DefaultClass.InfoBotLine,ConsoleColor.Cyan,true);
             //end line
-                Console.WriteLine("└───────────────────────────────────────────────────────────────────┘");
         }
         public static void ShowRow(object ob){
             if(ob is Chicken){
-                DisplaySP.PrintCyanColor("║ " , ((Chicken)ob).ChickenID.ToString());
+                DisplaySP.PrintColor("║ " , ((Chicken)ob).ChickenID.ToString(), ConsoleColor.Cyan,false);
                 DisplaySP.PrintCharacterAndEnd(5 - ((Chicken)ob).ChickenID.ToString().Length - 1,' ','║',false);
                 Console.Write(" " + ((Chicken)ob).ChickenName);
                 DisplaySP.PrintCharacterAndEnd(20 - ((Chicken)ob).ChickenName.Length - 1,' ','║',false);
@@ -836,7 +851,7 @@ namespace ConsolPL {
             }
 
             if(ob is Cage ){
-                DisplaySP.PrintCyanColor("║ " , ((Cage)ob).CageID.ToString());
+                DisplaySP.PrintColor("║ " , ((Cage)ob).CageID.ToString(), ConsoleColor.Cyan,false);
                 DisplaySP.PrintCharacterAndEnd(5 - ((Cage)ob).CageID.ToString().Length - 1,' ','║',false);
                 Console.Write(" " + ((Cage)ob).Cage_Name);
                 DisplaySP.PrintCharacterAndEnd(20 - ((Cage)ob).Cage_Name.Length - 1,' ','║',false);
@@ -849,7 +864,7 @@ namespace ConsolPL {
             }
 
             if(ob is ChickenStatus){
-                DisplaySP.PrintCyanColor("║ " , ((ChickenStatus)ob).ChickenID.ToString());
+                DisplaySP.PrintColor("║ " , ((ChickenStatus)ob).ChickenID.ToString(), ConsoleColor.Cyan,false);
                 DisplaySP.PrintCharacterAndEnd(10 - ((ChickenStatus)ob).ChickenID.ToString().Length - 1,' ','║',false);
                 Console.Write(" " + ((ChickenStatus)ob).Quantity);
                 DisplaySP.PrintCharacterAndEnd(10 - ((ChickenStatus)ob).Quantity.ToString().Length - 1,' ','║',false);

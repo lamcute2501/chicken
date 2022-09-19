@@ -1,36 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\ConsolePL\\ConsolePL.csproj": {}
+    "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\ConsolePL\\ConsolePL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\BL\\BL.csproj": {
+    "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\BL\\BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\BL\\BL.csproj",
+        "projectUniqueName": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\BL\\BL.csproj",
         "projectName": "BL",
-        "projectPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\BL\\BL.csproj",
-        "packagesPath": "C:\\Users\\hailo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\BL\\obj\\",
+        "projectPath": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\BL\\BL.csproj",
+        "packagesPath": "C:\\Users\\vuan2\\.nuget\\packages\\",
+        "outputPath": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\BL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hailo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\vuan2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\DAL\\DAL.csproj"
+              "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\DAL\\DAL.csproj": {
+                "projectPath": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\DAL\\DAL.csproj"
               },
-              "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\Persistence\\Persistence.csproj"
+              "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\Persistence\\Persistence.csproj": {
+                "projectPath": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -59,37 +61,39 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\ConsolePL\\ConsolePL.csproj": {
+    "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\ConsolePL\\ConsolePL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\ConsolePL\\ConsolePL.csproj",
+        "projectUniqueName": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\ConsolePL\\ConsolePL.csproj",
         "projectName": "ConsolePL",
-        "projectPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\ConsolePL\\ConsolePL.csproj",
-        "packagesPath": "C:\\Users\\hailo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\ConsolePL\\obj\\",
+        "projectPath": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\ConsolePL\\ConsolePL.csproj",
+        "packagesPath": "C:\\Users\\vuan2\\.nuget\\packages\\",
+        "outputPath": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\ConsolePL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hailo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\vuan2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\BL\\BL.csproj": {
-                "projectPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\BL\\BL.csproj"
+              "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\BL\\BL.csproj": {
+                "projectPath": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\BL\\BL.csproj"
               },
-              "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\DAL\\DAL.csproj"
+              "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\DAL\\DAL.csproj": {
+                "projectPath": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\DAL\\DAL.csproj"
               }
             }
           }
@@ -118,34 +122,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\DAL\\DAL.csproj": {
+    "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\DAL\\DAL.csproj",
+        "projectUniqueName": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\hailo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\DAL\\obj\\",
+        "projectPath": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\vuan2\\.nuget\\packages\\",
+        "outputPath": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hailo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\vuan2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\Persistence\\Persistence.csproj"
+              "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\Persistence\\Persistence.csproj": {
+                "projectPath": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -180,26 +186,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\Persistence\\Persistence.csproj": {
+    "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\Persistence\\Persistence.csproj",
-        "packagesPath": "C:\\Users\\hailo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hailo\\WorkSpace\\C#\\Semeter1\\Persistence\\obj\\",
+        "projectPath": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\Persistence\\Persistence.csproj",
+        "packagesPath": "C:\\Users\\vuan2\\.nuget\\packages\\",
+        "outputPath": "D:\\tai_lieu\\VTC_academy\\lap_trinh_c#\\OOAD+PRJ1\\project\\Code_C#\\chicken\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hailo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\vuan2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -232,7 +240,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
